@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/15 09:55:52 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:51:09 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ void    *opne_windows(t_data *data)
         win_height++;
     }
     close(fd);
-    if (check_map(win_height) == 1)
-        return (NULL);
     data->win_width = win_width;
     data->win_height = win_height;
-    mlx = mlx_new_window(data->mlx, data->win_width * 40, data->win_height * 40, "so_long");
+    mlx = mlx_new_window(data->mlx, data->win_width * 60, data->win_height * 60, "so_long");
     return (mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/15 21:50:17 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:49:01 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void load_images(t_data *data)
     data->floor = mlx_xpm_file_to_image(data->mlx, "textures/floor.xpm", &x, &y);
     data->player = mlx_xpm_file_to_image(data->mlx, "textures/player.xpm", &x, &y);
     data->coin = mlx_xpm_file_to_image(data->mlx, "textures/meat.xpm", &x, &y);
+    data->exit = mlx_xpm_file_to_image(data->mlx, "textures/exit.xpm", &x, &y);
+    data->not_exit = mlx_xpm_file_to_image(data->mlx, "textures/not_exit.xpm", &x, &y);
 
-    if (!data->wall || !data->floor || !data->player)
+    if (!data->wall || !data->floor || !data->player || !data->coin || !data->exit)
     {
         printf("Error: Failed to load images\n");
         exit(1);
@@ -57,12 +59,14 @@ void draw_map(t_data *data, const char *map_path)
         }
         else if (buffer[0] == 'C')
             mlx_put_image_to_window(data->mlx, data->win, data->coin, x, y);
+        else if (buffer[0] == 'E')
+            mlx_put_image_to_window(data->mlx, data->win, data->exit, x, y);
         else if (buffer[0] == '\n')
         {
-            y += 40;
-            x = -40;
+            y += 60;
+            x = -60;
         }
-        x += 40;
+        x += 60;
     }
 
     close(fd);
@@ -71,6 +75,8 @@ void draw_map(t_data *data, const char *map_path)
 int main(int ac, char **av)
 {
     t_data  data;
+    data.num = 0;
+    data.count_move = 0;
     (void)ac;
     (void)av;
 
@@ -91,6 +97,7 @@ int main(int ac, char **av)
     load_images(&data);
     draw_map(&data, "map.ber");
     data.map = ft_char_map(data.win_height);
+    data.i = ft_count_coin(data.map);
     
     mlx_hook(data.win, 2, 1L << 0, handle_keypress, &data);
     mlx_hook(data.win, 17, 0, close_window, &data);

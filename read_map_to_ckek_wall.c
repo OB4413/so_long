@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/15 21:53:48 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:44:30 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,18 @@ void free_resources(t_data *data)
         data->coin = NULL;
     }
 
+    if (data->not_exit)
+    {
+        mlx_destroy_image(data->mlx, data->not_exit);
+        data->not_exit = NULL;
+    }
+
+    if (data->exit)
+    {
+        mlx_destroy_image(data->mlx ,data->exit);
+        data->exit = NULL;
+    }
+
     if (data->map)
     {
         free_map(data->map);
@@ -100,10 +112,11 @@ void free_resources(t_data *data)
         data->win = NULL;
     }
 
-    // if (data->mlx)
-    // {
-    //     mlx_destroy_display(data->mlx);
-    //     free(data->mlx);
-    //     data->mlx = NULL;
-    // }
+    if (data->mlx)
+    {
+        mlx_destroy_display(data->mlx);
+        free(data->mlx);
+        data->mlx = NULL;
+        exit(0);
+    }
 }

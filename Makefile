@@ -1,6 +1,6 @@
 NAME = so_long
 
-SOURCES = so_long.c move_closewin.c new_windows.c check_map.c read_map_to_ckek_wall.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+SOURCES = so_long.c move_closewin.c new_windows.c check_map.c read_map_to_ckek_wall.c count_coin.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
