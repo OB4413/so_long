@@ -9,7 +9,7 @@ libmlx = minilibx-linux/libmlx_Linux.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(libmlx) $(NAME) clean
+all: $(NAME) clean
 
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) $(libmlx) -lXext -lX11 -lm
@@ -17,12 +17,8 @@ $(NAME): $(OBJECTS)
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(libmlx):
-	make -C minilibx-linux
-
 clean:
 	rm -f $(OBJECTS)
-	make clean -C minilibx-linux
 
 fclean: clean
 	rm -f $(NAME)
