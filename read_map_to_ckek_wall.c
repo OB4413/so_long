@@ -6,34 +6,52 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/18 21:44:30 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/20 12:50:30 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char    **ft_char_map(int win_heigth)
+void put_trmnation(char *str)
+{
+    int i = 0;
+
+    while (str[i])
+    {
+        if (str[i] == '\n')
+        {
+            str[i] = '\0';
+            break;
+        }
+        i++;
+    }
+}
+
+char    **ft_char_map(char *av, t_data *data)
 {
     char **map;
     int i;
     int fd;
     
-    fd = open("map.ber", O_RDONLY);
+    fd = open(av, O_RDONLY);
     i = 0;
     if (fd < 0)
     {
         printf("Error: Failed to open map file\n");
         exit(1);
     }
-    map = (char **)malloc(sizeof(char *) * (win_heigth + 1));
+    ft_len_map(av, data);
+    int lenmap = data->win_height;
+    map = (char **)malloc(sizeof(char *) * (lenmap + 1));
     if (!map)
     {
         printf("Error: Failed to allocate memory for map\n");
         exit(1);
     }
-    while (i < win_heigth)
+    while (i < lenmap)
     {
         map[i] = get_next_line(fd);
+        put_trmnation(map[i]);
         if (!map[i])
         {
             printf("Error: Failed to read map file\n");

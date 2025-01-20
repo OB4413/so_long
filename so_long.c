@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/18 21:49:01 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/20 22:47:15 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void load_images(t_data *data)
     }
 }
 
-void draw_map(t_data *data, const char *map_path)
+void draw_map(t_data *data,char *map)
 {
-    int fd = open(map_path, O_RDONLY);
+    int fd = open(map, O_RDONLY);
     if (fd < 0)
     {
         printf("Error: Failed to open map file\n");
@@ -52,11 +52,7 @@ void draw_map(t_data *data, const char *map_path)
         else if (buffer[0] == '0')
             mlx_put_image_to_window(data->mlx, data->win, data->floor, x, y);
         else if (buffer[0] == 'P')
-        {
             mlx_put_image_to_window(data->mlx, data->win, data->player, x, y);
-            data->player_x = x;
-            data->player_y = y;
-        }
         else if (buffer[0] == 'C')
             mlx_put_image_to_window(data->mlx, data->win, data->coin, x, y);
         else if (buffer[0] == 'E')
@@ -77,9 +73,20 @@ int main(int ac, char **av)
     t_data  data;
     data.num = 0;
     data.count_move = 0;
-    (void)ac;
-    (void)av;
-
+    
+    if (ac != 2 || ft_check_path(av[1]))
+    {
+        printf("Error: Invalid number of arguments\n");
+        return (1);
+    }
+    data.map = ft_char_map(av[1], &data);
+    check_map(data.map, &data);
+    data.i = ft_count_coin(data.map);
+    postion_player(data.map, &data);
+    data.str = ft_char_map(av[1], &data);
+    ft_check_flood(data.player_x / 60, data.player_y / 60, &data);
+    free_map(data.str);
+    
     data.mlx = mlx_init();
     if (!data.mlx)
     {
@@ -95,9 +102,7 @@ int main(int ac, char **av)
     }
 
     load_images(&data);
-    draw_map(&data, "map.ber");
-    data.map = ft_char_map(data.win_height);
-    data.i = ft_count_coin(data.map);
+    draw_map(&data, av[1]);
     
     mlx_hook(data.win, 2, 1L << 0, handle_keypress, &data);
     mlx_hook(data.win, 17, 0, close_window, &data);

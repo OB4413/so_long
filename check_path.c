@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_windows.c                                      :+:      :+:    :+:   */
+/*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/19 10:39:35 by obarais          ###   ########.fr       */
+/*   Created: 2025/01/20 21:58:21 by obarais           #+#    #+#             */
+/*   Updated: 2025/01/20 22:52:18 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    *opne_windows(t_data *data)
+void	*ft_check_path(char *path)
 {
-    void *mlx;
+    size_t	i;
 
-    mlx = mlx_new_window(data->mlx, data->win_width * 60, data->win_height * 60, "so_long");
-    return (mlx);
+    i = ft_strlen(path);
+    i--;
+    if (path[i] != 'r' || path[i - 1] != 'e' || path[i - 2] != 'b' || path[i - 3] != '.')
+    {
+        printf("Error: Invalid file extension\n");
+        exit(1);
+    }
+    return (NULL);
 }

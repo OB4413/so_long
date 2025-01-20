@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/18 21:41:38 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/20 22:49:59 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_data
 	// int wll_x;
 	// int wll_y;
 	char	**map;
+	char	**str;
 	int		num;
 	int		i;
 	size_t	count_move;
@@ -58,10 +59,17 @@ typedef struct s_data
 int			close_window(t_data *data);
 int			handle_keypress(int keycode, t_data *data);
 void		*opne_windows(t_data *data);
-int			check_map(int win_heigth);
-char		**ft_char_map(int win_heigth);
+void		check_map(char **map, t_data *data);
+char		**ft_char_map(char *av, t_data *data);
 void		free_map(char **map);
 void		free_resources(t_data *data);
 int			ft_count_coin(char **map);
+int			ft_count_exit(char **map);
+void		ft_len_map(char *av, t_data *data);
+void		put_trmnation(char *str);
+void		ft_check_flood(int x, int y, t_data *data);
+void		ft_flood_fill(int x, int y, t_data *data);
+void		postion_player(char **map, t_data *data);
+void		*ft_check_path(char *path);
 
 #endif
