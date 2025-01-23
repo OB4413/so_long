@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:17:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/20 21:29:32 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/23 09:07:57 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void    ft_check_flood(int x, int y, t_data *data)
         printf("Error: Map is invalid\n");
         exit(1);
     }
-    if (ft_count_coin(data->str) != 0)
+    if (ft_count_exit(data->str) != 0)
     {
         printf("Error: Map is invalid\n");
         exit(1);
