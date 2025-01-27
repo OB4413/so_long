@@ -6,15 +6,16 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/20 22:49:59 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 10:33:13 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "get_next_line/get_next_line.h"
-# include "minilibx-linux/mlx.h"
+# include "../get_next_line/get_next_line.h"
+# include "../ft_printf/ft_printf.h"
+# include "../minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -22,13 +23,13 @@
 # include <unistd.h>
 
 # define ESC_KEY 65307
-# define Up 65362
+# define UP 65362
 # define W 119
-# define Down 65364
+# define DOWN 65364
 # define S 115
-# define Left 65361
+# define LEFT 65361
 # define A 97
-# define Right 65363
+# define RIGHT 65363
 # define D 100
 
 typedef struct s_data
@@ -43,17 +44,13 @@ typedef struct s_data
 	void	*coin;
 	void	*exit;
 	void	*not_exit;
-	int		player_x;
-	int		player_y;
-	// int coin_x;
-	// int coin_y;
-	// int wll_x;
-	// int wll_y;
+	int		x;
+	int		y;
 	char	**map;
 	char	**str;
 	int		num;
 	int		i;
-	size_t	count_move;
+	int		count_move;
 }			t_data;
 
 int			close_window(t_data *data);
@@ -71,5 +68,9 @@ void		ft_check_flood(int x, int y, t_data *data);
 void		ft_flood_fill(int x, int y, t_data *data);
 void		postion_player(char **map, t_data *data);
 void		*ft_check_path(char *path);
+void		ft_draw_map(t_data *data, char *map);
+void		check_coin_exit(t_data *data, int i);
+void		move_dirction_0(t_data *data, int i);
+int			move_dirction(t_data *data, int i);
 
 #endif

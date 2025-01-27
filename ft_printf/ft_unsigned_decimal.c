@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_path.c                                       :+:      :+:    :+:   */
+/*   ft_unsigned_decimal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 21:58:21 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/20 22:52:18 by obarais          ###   ########.fr       */
+/*   Created: 2024/11/25 09:39:54 by obarais           #+#    #+#             */
+/*   Updated: 2024/11/28 21:22:23 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-void	*ft_check_path(char *path)
+int	ft_unsigned_decimal(unsigned int nb)
 {
-    size_t	i;
+	int	res;
 
-    i = ft_strlen(path);
-    i--;
-    if (path[i] != 'r' || path[i - 1] != 'e' || path[i - 2] != 'b' || path[i - 3] != '.')
-    {
-        printf("Error: Invalid file extension\n");
-        exit(1);
-    }
-    return (NULL);
+	res = 0;
+	if (nb > 9)
+	{
+		res += ft_unsigned_decimal(nb / 10);
+		res += ft_unsigned_decimal(nb % 10);
+	}
+	else
+		res += ft_putchar(nb + '0');
+	return (res);
 }

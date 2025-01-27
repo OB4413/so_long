@@ -1,10 +1,11 @@
 NAME = so_long
 
-SOURCES = so_long.c move_closewin.c new_windows.c check_map.c read_map_to_ckek_wall.c count_coin_E.c count_len.c flood_fill.c check_path.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+SOURCES = src/so_long.c src/move_dirction.c src/move_closewin.c src/n_win_error_exit.c src/check_map.c src/creat_2d_array_free.c src/count_coin_E.c src/count_len.c src/flood_fill.c src/check_path.c src/draw_map.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
 libmlx = minilibx-linux/libmlx_Linux.a
+print = ft_printf/libftprintf.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -12,7 +13,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME) clean
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) $(libmlx) -lXext -lX11 -lm
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) $(print) $(libmlx) -lXext -lX11 -lm
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@

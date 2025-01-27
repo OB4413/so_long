@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_windows.c                                      :+:      :+:    :+:   */
+/*   ft_hexalower.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/19 10:39:35 by obarais          ###   ########.fr       */
+/*   Created: 2024/11/24 15:47:52 by obarais           #+#    #+#             */
+/*   Updated: 2024/11/25 17:34:04 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-void    *opne_windows(t_data *data)
+int	ft_hexalower(unsigned int nb)
 {
-    void *mlx;
+	int		res;
+	char	*h;
 
-    mlx = mlx_new_window(data->mlx, data->win_width * 60, data->win_height * 60, "so_long");
-    return (mlx);
+	h = "0123456789abcdef";
+	res = 0;
+	if (nb >= 16)
+	{
+		res += ft_hexalower(nb / 16);
+		res += ft_hexalower(nb % 16);
+	}
+	else
+		res += ft_putchar(h[nb]);
+	return (res);
 }
