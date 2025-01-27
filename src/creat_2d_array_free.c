@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:53:26 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:58:59 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ void	put_trmnation(char *str)
 
 void prinft_error(int i)
 {
-	if (i = 1)
+	if (i == 1)
 	{
 		printf("Error: Map is invalid\n");
 		exit(1);
 	}
-	if (i = 2)
+	else if (i == 2)
 	{
 		printf("Error: Failed to open map file\n");
 		exit(1);
 	}
-	if (i = 4)
+	else if (i == 4)
 	{
 		printf("Error: Failed to allocate memory\n");
 		exit(1);
