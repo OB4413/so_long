@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 10:40:42 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:04:03 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	load_images(t_data *data)
 			&y);
 	data->exit = mlx_xpm_file_to_image(data->mlx, "src/textures/exit.xpm", &x,
 			&y);
-	data->not_exit = mlx_xpm_file_to_image(data->mlx,
-			"src/textures/not_exit.xpm", &x, &y);
 	if (!data->wall || !data->floor || !data->player || !data->coin
 		|| !data->exit)
 	{

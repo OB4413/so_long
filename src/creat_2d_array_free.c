@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/26 18:08:52 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:04:38 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ void	free_resources(t_data *data)
 		mlx_destroy_image(data->mlx, data->floor);
 	if (data->coin)
 		mlx_destroy_image(data->mlx, data->coin);
-	if (data->not_exit)
-		mlx_destroy_image(data->mlx, data->not_exit);
 	if (data->exit)
 		mlx_destroy_image(data->mlx, data->exit);
 	if (data->map)

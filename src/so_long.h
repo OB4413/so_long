@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 10:52:55 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:04:16 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_data
 	void	*player;
 	void	*coin;
 	void	*exit;
-	void	*not_exit;
 	int		x;
 	int		y;
 	char	**map;
