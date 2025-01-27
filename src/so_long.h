@@ -6,15 +6,15 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 10:33:13 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 10:52:55 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../get_next_line/get_next_line.h"
 # include "../ft_printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
@@ -69,8 +69,8 @@ void		ft_flood_fill(int x, int y, t_data *data);
 void		postion_player(char **map, t_data *data);
 void		*ft_check_path(char *path);
 void		ft_draw_map(t_data *data, char *map);
-void		check_coin_exit(t_data *data, int i);
-void		move_dirction_0(t_data *data, int i);
+void		check_coin_exit(t_data *data, int keycode);
 int			move_dirction(t_data *data, int i);
+void		help_check_coin_exit(t_data *data, int keycode);
 
 #endif

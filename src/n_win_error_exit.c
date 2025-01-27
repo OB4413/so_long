@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 10:32:35 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:01:59 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,39 @@ void	*opne_windows(t_data *data)
 	return (mlx);
 }
 
-void	move_dirction_0(t_data *data, int i)
+static void	help_help_check_coin_exit(t_data *data, int keycode)
 {
-	if (data->player && (i == UP || i == W))
+	if (data->map[data->y / 60][data->x / 60 - 1] == 'E' && data->num == data->i
+		&& (keycode == LEFT || keycode == A))
 	{
-		move_dirction(data, 2);
-		mlx_put_image_to_window(data->mlx, data->win, data->exit, (*data).x,
-			(*data).y - 60);
+		printf("you win!");
+		free_resources(data);
+		exit(0);
 	}
-	else if (data->player && (i == DOWN || i == S))
+	else if (data->map[data->y / 60][data->x / 60 + 1] == 'E'
+		&& data->num == data->i && (keycode == RIGHT || keycode == D))
 	{
-		move_dirction(data, 1);
-		mlx_put_image_to_window(data->mlx, data->win, data->exit, (*data).x,
-			(*data).y + 60);
+		printf("you win!");
+		free_resources(data);
+		exit(0);
 	}
-	else if (data->player && (i == LEFT || i == A))
+}
+
+void	help_check_coin_exit(t_data *data, int keycode)
+{
+	if (data->map[data->y / 60 - 1][data->x / 60] == 'E' && data->num == data->i
+		&& (keycode == UP || keycode == W))
 	{
-		move_dirction(data, 4);
-		mlx_put_image_to_window(data->mlx, data->win, data->exit, (*data).x
-			- 60, (*data).y);
+		printf("you win!");
+		free_resources(data);
+		exit(0);
 	}
-	else if (data->player && (i == RIGHT || i == D))
+	else if (data->map[data->y / 60 + 1][data->x / 60] == 'E'
+		&& data->num == data->i && (keycode == DOWN || keycode == S))
 	{
-		move_dirction(data, 3);
-		mlx_put_image_to_window(data->mlx, data->win, data->exit, (*data).x
-			+ 60, (*data).y);
+		printf("you win!");
+		free_resources(data);
+		exit(0);
 	}
+	help_help_check_coin_exit(data, keycode);
 }
