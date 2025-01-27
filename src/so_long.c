@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:04:03 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:50:25 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	load_images(t_data *data)
 	if (!data->wall || !data->floor || !data->player || !data->coin
 		|| !data->exit)
 	{
+		free_resources(data);
 		printf("Error: Failed to load images\n");
 		exit(1);
 	}
@@ -52,10 +53,10 @@ int	main(int ac, char **av)
 	free_map(data.str);
 	data.mlx = mlx_init();
 	if (!data.mlx)
-		return (1);
+		return (ft_printf("Error: Failed to init mlx\n"), 1);
 	data.win = opne_windows(&data);
 	if (!data.win)
-		return (1);
+		return (ft_printf("Error: Failed to open window\n"), 1);
 	load_images(&data);
 	ft_draw_map(&data, av[1]);
 	mlx_hook(data.win, 2, 1L >> 0, handle_keypress, &data);

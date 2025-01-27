@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:13:43 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/26 18:47:48 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:37:42 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ static void	ft_count_cpe(char **map, t_data *data)
 	help_conut_cpe(&c, &p, &e, map);
 	if (c < 1 || p != 1 || !(e == 1))
 	{
-		printf("Error: __Map is invalid\n");
 		free_map(data->map);
-		exit(1);
+		prinft_error(1);
 	}
 }
 
@@ -61,18 +60,16 @@ static void	help_ckeck_wall(char **map, int i, int j, t_data *data)
 		{
 			if (map[i][j] != '1')
 			{
-				printf("Error: --Map is invalid\n");
 				free_map(data->map);
-				exit(1);
+				prinft_error(1);
 			}
 			j++;
 		}
 	}
 	else if (map[i][0] != '1' || map[i][ft_strlen(map[i]) - 1] != '1')
 	{
-		printf("Error: ==Map is invalid\n");
 		free_map(data->map);
-		exit(1);
+		prinft_error(1);
 	}
 }
 
@@ -91,9 +88,8 @@ static void	ft_check_wall(char **map, t_data *data)
 			{
 				if (map[0][j] != '1')
 				{
-					printf("Error: ++Map is invalid\n");
 					free_map(data->map);
-					exit(1);
+					prinft_error(1);
 				}
 				j++;
 			}
@@ -119,9 +115,8 @@ void	check_map(char **map, t_data *data)
 			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'P'
 				&& map[i][j] != 'C' && map[i][j] != 'E')
 			{
-				printf("Error: Map is invalid\n");
 				free_map(data->map);
-				exit(1);
+				prinft_error(1);
 			}
 			j++;
 		}

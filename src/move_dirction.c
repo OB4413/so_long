@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:30:51 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/26 16:35:05 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:55:27 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int	move_dirction(t_data *data, int i)
 	}
 	the_rest(data, i);
 	data->count_move++;
-	ft_printf("count_move = %d\n", data->count_move);
+	ft_printf("Moves: %d\n", data->count_move);
 	return (0);
 }

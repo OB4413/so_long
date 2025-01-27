@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:17:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 08:35:10 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:54:01 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,12 @@ void	ft_check_flood(int x, int y, t_data *data)
 	{
 		free_map(data->map);
 		free_map(data->str);
-		printf("Error: Map is invalid\n");
-		exit(1);
+		prinft_error(1);
 	}
 	if (ft_count_exit(data->str) != 0)
 	{
 		free_map(data->map);
 		free_map(data->str);
-		printf("Error: Map is invalid\n");
-		exit(1);
+		prinft_error(1);
 	}
 }

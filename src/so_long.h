@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:04:16 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:36:24 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void		ft_draw_map(t_data *data, char *map);
 void		check_coin_exit(t_data *data, int keycode);
 int			move_dirction(t_data *data, int i);
 void		help_check_coin_exit(t_data *data, int keycode);
+void		prinft_error(int i);
 
 #endif
