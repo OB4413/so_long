@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 16:23:04 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:43:59 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	draw_coin_B(int x, int y, t_data *data)
 	while (data->ancion[i])
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], x, y);
-		usleep(1000);
 		i++;
 	}
+	i = 0;
 	mlx_loop(data->mlx);
 }
 

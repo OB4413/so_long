@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 16:09:54 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:41:17 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_coin_exit_B(t_data *data, int keycode)
 		data->num++;
 		data->map[data->y / 60][data->x / 60] = '0';
 	}
-	help_check_coin_exit(data, keycode);
+	help_check_coin_exit_B(data, keycode);
 }
 
 static void	help_handle_keypress_B(int keycode, t_data *data)
@@ -48,8 +48,8 @@ static void	help_handle_keypress_B(int keycode, t_data *data)
 int	handle_keypress_B(int keycode, t_data *data)
 {
 	if (keycode == ESC_KEY)
-		close_window(data);
-	check_coin_exit(data, keycode);
+		close_window_B(data);
+	check_coin_exit_B(data, keycode);
 	if (keycode == UP || keycode == W)
 	{
 		if (data->map[data->y / 60 - 1][data->x / 60] != '1'

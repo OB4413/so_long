@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 16:12:48 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:24:40 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ int	main(int ac, char **av)
 		return (ft_printf("Error: Failed to open window\n"), 1);
 	load_images_B(&data);
 	ft_draw_map_B(&data, av[1]);
-	mlx_hook(data.win, 2, 1L >> 0, handle_keypress, &data);
-	mlx_hook(data.win, 17, 0, close_window, &data);
+	mlx_hook(data.win, 2, 1L >> 0, handle_keypress_B, &data);
+	mlx_hook(data.win, 17, 0, close_window_B, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
