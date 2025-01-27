@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:01:59 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 12:23:29 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,54 @@ void	*opne_windows(t_data *data)
 
 static void	help_help_check_coin_exit(t_data *data, int keycode)
 {
-	if (data->map[data->y / 60][data->x / 60 - 1] == 'E' && data->num == data->i
-		&& (keycode == LEFT || keycode == A))
+	if (data->map[data->y / 60][data->x / 60 - 1] == 'E' && (keycode == LEFT
+			|| keycode == A))
 	{
-		printf("you win!");
-		free_resources(data);
-		exit(0);
+		if (data->num == data->i)
+		{
+			printf("you win!");
+			free_resources(data);
+			exit(0);
+		}
+		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
 	}
 	else if (data->map[data->y / 60][data->x / 60 + 1] == 'E'
-		&& data->num == data->i && (keycode == RIGHT || keycode == D))
+		&& (keycode == RIGHT || keycode == D))
 	{
-		printf("you win!");
-		free_resources(data);
-		exit(0);
+		if (data->num == data->i)
+		{
+			printf("you win!");
+			free_resources(data);
+			exit(0);
+		}
+		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
 	}
 }
 
 void	help_check_coin_exit(t_data *data, int keycode)
 {
-	if (data->map[data->y / 60 - 1][data->x / 60] == 'E' && data->num == data->i
-		&& (keycode == UP || keycode == W))
+	if (data->map[data->y / 60 - 1][data->x / 60] == 'E' && (keycode == UP
+			|| keycode == W))
 	{
-		printf("you win!");
-		free_resources(data);
-		exit(0);
+		if (data->num == data->i)
+		{
+			printf("you win!");
+			free_resources(data);
+			exit(0);
+		}
+		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
 	}
 	else if (data->map[data->y / 60 + 1][data->x / 60] == 'E'
-		&& data->num == data->i && (keycode == DOWN || keycode == S))
+		&& (keycode == DOWN || keycode == S))
 	{
-		printf("you win!");
-		free_resources(data);
-		exit(0);
+		if (data->num == data->i)
+		{
+			printf("you win!");
+			free_resources(data);
+			exit(0);
+		}
+		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
 	}
-	help_help_check_coin_exit(data, keycode);
+	else
+		help_help_check_coin_exit(data, keycode);
 }

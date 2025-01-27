@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:58:59 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/27 12:24:13 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	put_trmnation(char *str)
 	}
 }
 
-void prinft_error(int i)
+void	prinft_error(int i)
 {
 	if (i == 1)
 	{
