@@ -1,12 +1,12 @@
 NAME = so_long
-BONUS = so_long
+BONUS = so_long_B
 
 SOURCES = src/so_long.c src/move_dirction.c src/move_closewin.c src/n_win_error_exit.c src/check_map.c \
 			src/creat_2d_array_free.c src/count_coin_E.c src/count_len.c src/flood_fill.c \
 			src/check_path.c src/draw_map.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
-BSOURCES = src/so_long.c src/move_dirction.c src/move_closewin.c src/n_win_error_exit.c src/check_map.c \
+BSOURCES = src_bonus/so_long_B.c src_bonus/move_dirction_B.c src_bonus/move_closewin_B.c src_bonus/n_win_error_exit_B.c src/check_map.c \
 			src/creat_2d_array_free.c src/count_coin_E.c src/count_len.c src/flood_fill.c \
-			src/check_path.c src/draw_map.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+			src/check_path.c src_bonus/draw_map_B.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJECTS = $(SOURCES:.c=.o)
 BOBJECTS = $(BSOURCES:.c=.o)
@@ -24,8 +24,8 @@ $(NAME): $(OBJECTS)
 
 bonus: $(BONUS)
 
-$(BONUS): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(BONUS) $(print) $(libmlx) -lXext -lX11 -lm
+$(BONUS): $(BOBJECTS)
+	$(CC) $(CFLAGS) $(BOBJECTS) -o $(BONUS) $(print) $(libmlx) -lXext -lX11 -lm
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
