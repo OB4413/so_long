@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 12:59:49 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 18:17:45 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ typedef struct s_data
 	int			num;
 	int			i;
 	int			count_move;
-	int			cx;
-	int			cy;
+	int			*xyancion;
 }				t_data;
 
 int				close_window(t_data *data);

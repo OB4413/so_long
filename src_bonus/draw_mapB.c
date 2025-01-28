@@ -6,18 +6,38 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 14:47:29 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 19:09:54 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
+int draw_coin_B(t_data *data)
+{
+	static int i = 1;
+	static int j = 0;
+
+	if (data->i == 0)
+		return (0);
+	if (j == (data->i * 2))
+		j = 0;
+	if (i == 7)
+		i = 0;
+	mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], data->xyancion[j], data->xyancion[j + 1]);
+	i++;
+	j += 2;
+	usleep(400000 / data->i);
+	return (0);
+}
+
 static void	the_rest_B(int fd, t_data *data, int x, int y)
 {
 	char	buffer[2];
 	int		i;
+	int 	j;
 
 	i = 1;
+	j = 0;
 	while (i > 0)
 	{
 		i = read(fd, buffer, 1);
@@ -28,6 +48,14 @@ static void	the_rest_B(int fd, t_data *data, int x, int y)
 			mlx_put_image_to_window(data->mlx, data->win, data->floor, x, y);
 		else if (buffer[0] == 'P')
 			mlx_put_image_to_window(data->mlx, data->win, data->player, x, y);
+		else if (buffer[0] == 'C')
+		{
+			data->xyancion[j] = x;
+			data->xyancion[j + 1] = y;
+			mlx_put_image_to_window(data->mlx, data->win, data->ancion[0], x, y);
+			mlx_loop_hook(data->mlx, draw_coin_B, data);
+			j += 2;
+		}
 		else if (buffer[0] == 'E')
 			mlx_put_image_to_window(data->mlx, data->win, data->exit, x, y);
 		else if (buffer[0] == '\n')

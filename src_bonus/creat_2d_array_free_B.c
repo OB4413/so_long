@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 16:32:43 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 18:27:11 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	free_resources(t_data *data)
 		mlx_destroy_image(data->mlx, data->exit);
 	if (data->map)
 		free_map(data->map);
+	if (data->xyancion)
+		free(data->xyancion);
 	if (data->win)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)

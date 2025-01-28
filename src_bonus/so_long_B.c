@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 15:28:18 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 18:17:55 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,41 +57,6 @@ void	load_images_B(t_data *data)
 	}
 }
 
-int draw_coin_B(t_data *data)
-{
-	static int i = 0;
-
-	if (i == 7)
-		i = 0;
-	mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], data->cx, data->cy);
-	i++;
-	return (0);
-}
-
-int	finde_C(t_data *data)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while(data->map[i])
-	{
-		j = 0;
-		while(data->map[i][j])
-		{
-			if (data->map[i][j] == 'C')
-			{
-				data->cx = j * 60;
-				data->cy = i * 60;
-				mlx_loop_hook(data->mlx, draw_coin_B, data);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
 int	main(int ac, char **av)
 {
 	t_data	data;
@@ -114,10 +79,10 @@ int	main(int ac, char **av)
 	if (!data.win)
 		return (ft_printf("Error: Failed to open window\n"), 1);
 	load_images_B(&data);
+	data.xyancion = malloc(sizeof(int) * data.i * 2);
 	ft_draw_map_B(&data, av[1]);
 	mlx_hook(data.win, 2, 1L >> 0, handle_keypress_B, &data);
 	mlx_hook(data.win, 17, 0, close_window_B, &data);
-	mlx_loop_hook(data.mlx, finde_C, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
