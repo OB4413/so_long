@@ -6,24 +6,31 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 16:43:59 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 10:09:24 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	draw_coin_B(int x, int y, t_data *data)
+int	draw_coin_B(t_data *data)
 {
-	int i;
+	static int i;
+	int j;
 
 	i = 0;
-	while (data->ancion[i])
+	if (i == 7)
+		i = 0;
+	while (i < 7)
 	{
-		mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], x, y);
+		j = 0;
+		while (j < 50000)
+		{
+			mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], data->cx, data->cy);
+			j++;
+		}
 		i++;
 	}
-	i = 0;
-	mlx_loop(data->mlx);
+	return 0;
 }
 
 static void	the_rest_B(int fd, t_data *data, int x, int y)
@@ -43,7 +50,11 @@ static void	the_rest_B(int fd, t_data *data, int x, int y)
 		else if (buffer[0] == 'P')
 			mlx_put_image_to_window(data->mlx, data->win, data->player, x, y);
 		else if (buffer[0] == 'C')
-			draw_coin_B(x, y, data);
+		{
+			data->cx = x;
+			data->cy = y;
+			mlx_loop_hook(data->mlx, draw_coin_B, data);
+		}
 		else if (buffer[0] == 'E')
 			mlx_put_image_to_window(data->mlx, data->win, data->exit, x, y);
 		else if (buffer[0] == '\n')
