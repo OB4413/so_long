@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 16:41:17 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 16:30:32 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	check_coin_exit_B(t_data *data, int keycode)
 	{
 		data->num++;
 		data->map[data->y / 60][data->x / 60] = '0';
+		data->cx = 0;
+		data->cy = 0;
 	}
 	help_check_coin_exit_B(data, keycode);
 }

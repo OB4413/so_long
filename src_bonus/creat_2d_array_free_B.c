@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   creat_2d_array_free.c                              :+:      :+:    :+:   */
+/*   creat_2d_array_free_B.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 15:38:06 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/28 16:32:43 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	put_trmnation(char *str)
 {
@@ -99,8 +99,17 @@ void	free_resources(t_data *data)
 		mlx_destroy_image(data->mlx, data->wall);
 	if (data->floor)
 		mlx_destroy_image(data->mlx, data->floor);
-	if (data->coin)
-		mlx_destroy_image(data->mlx, data->coin);
+	if (data->ancion)
+	{
+		int	i;
+
+		i = 0;
+		while (data->ancion[i])
+		{
+			mlx_destroy_image(data->mlx, data->ancion[i]);
+			i++;
+		}
+	}
 	if (data->exit)
 		mlx_destroy_image(data->mlx, data->exit);
 	if (data->map)
