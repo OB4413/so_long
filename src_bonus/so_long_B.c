@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 18:17:55 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/29 10:48:30 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_load_images_cion(int x, int y, t_data *data)
 	data->ancion[8] = NULL;
 }
 
-void	load_images_B(t_data *data)
+void	load_images_b(t_data *data)
 {
 	int	x;
 	int	y;
@@ -78,11 +78,11 @@ int	main(int ac, char **av)
 	data.win = opne_windows(&data);
 	if (!data.win)
 		return (ft_printf("Error: Failed to open window\n"), 1);
-	load_images_B(&data);
+	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
-	ft_draw_map_B(&data, av[1]);
-	mlx_hook(data.win, 2, 1L >> 0, handle_keypress_B, &data);
-	mlx_hook(data.win, 17, 0, close_window_B, &data);
+	ft_draw_map_b(&data, av[1]);
+	mlx_hook(data.win, 2, 1L >> 0, handle_keypress_b, &data);
+	mlx_hook(data.win, 17, 0, close_window_b, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

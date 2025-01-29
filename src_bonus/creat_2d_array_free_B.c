@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 18:27:11 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/29 10:51:32 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ void	free_map(char **map)
 
 void	free_resources(t_data *data)
 {
+	int	i;
+
+	i = 0;
 	if (data->player)
 		mlx_destroy_image(data->mlx, data->player);
 	if (data->wall)
@@ -101,9 +104,6 @@ void	free_resources(t_data *data)
 		mlx_destroy_image(data->mlx, data->floor);
 	if (data->ancion)
 	{
-		int	i;
-
-		i = 0;
 		while (data->ancion[i])
 		{
 			mlx_destroy_image(data->mlx, data->ancion[i]);

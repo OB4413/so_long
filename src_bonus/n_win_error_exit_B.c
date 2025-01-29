@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 16:45:09 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/29 10:47:45 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*opne_windows(t_data *data)
 	return (mlx);
 }
 
-static void	help_help_check_coin_exit_B(t_data *data, int keycode)
+static void	help_help_check_coin_exit_b(t_data *data, int keycode)
 {
 	if (data->map[data->y / 60][data->x / 60 - 1] == 'E' && (keycode == LEFT
 			|| keycode == A))
@@ -47,7 +47,7 @@ static void	help_help_check_coin_exit_B(t_data *data, int keycode)
 	}
 }
 
-void	help_check_coin_exit_B(t_data *data, int keycode)
+void	help_check_coin_exit_b(t_data *data, int keycode)
 {
 	if (data->map[data->y / 60 - 1][data->x / 60] == 'E' && (keycode == UP
 			|| keycode == W))
@@ -72,5 +72,5 @@ void	help_check_coin_exit_B(t_data *data, int keycode)
 		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
 	}
 	else
-		help_help_check_coin_exit_B(data, keycode);
+		help_help_check_coin_exit_b(data, keycode);
 }
