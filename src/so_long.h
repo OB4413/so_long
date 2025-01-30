@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/28 18:17:45 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:32:31 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_data
 	void		*player;
 	void		*coin;
 	void		**ancion;
+	void		**anwp;
+	void		**anwlp;
 	void		*exit;
 	int			x;
 	int			y;
@@ -52,6 +54,7 @@ typedef struct s_data
 	int			i;
 	int			count_move;
 	int			*xyancion;
+	char		inlophok;
 }				t_data;
 
 int				close_window(t_data *data);

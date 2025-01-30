@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/29 10:51:32 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/29 14:56:21 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	free_resources(t_data *data)
 			mlx_destroy_image(data->mlx, data->ancion[i]);
 			i++;
 		}
+		free(data->ancion);
 	}
 	if (data->exit)
 		mlx_destroy_image(data->mlx, data->exit);
