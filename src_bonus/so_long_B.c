@@ -6,13 +6,39 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/30 18:45:09 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/31 09:39:47 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	ft_load_image_wlp(int x, int y, t_data *data)
+static void	ft_load_images_anep(int x, int y, t_data *data)
+{
+	data->anep = malloc(sizeof(void *) * 11);
+	data->anep[0] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat1.xpm", &x, &y);
+	data->anep[1] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat2.xpm", &x, &y);
+	data->anep[2] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat3.xpm", &x, &y);
+	data->anep[3] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat4.xpm", &x, &y);
+	data->anep[4] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat5.xpm", &x, &y);
+	data->anep[5] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat6.xpm", &x, &y);
+	data->anep[6] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat7.xpm", &x, &y);
+	data->anep[7] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat8.xpm", &x, &y);
+	data->anep[8] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat9.xpm", &x, &y);
+	data->anep[9] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures4/eat10.xpm", &x, &y);
+	data->anep[10] = NULL;
+}
+
+static void	ft_load_images_wlp(int x, int y, t_data *data)
 {
 	data->anwlp = malloc(sizeof(void *) * 11);
 	data->anwlp[0] = mlx_xpm_file_to_image(data->mlx,
@@ -38,7 +64,7 @@ static void	ft_load_image_wlp(int x, int y, t_data *data)
 	data->anwlp[10] = NULL;
 }
 
-static void	ft_load_image_wp(int x, int y, t_data *data)
+static void	ft_load_images_wp(int x, int y, t_data *data)
 {
 	data->anwp = malloc(sizeof(void *) * 8);
 	data->anwp[0] = mlx_xpm_file_to_image(data->mlx,
@@ -89,10 +115,9 @@ void	load_images_b(t_data *data)
 			&y);
 	data->floor = mlx_xpm_file_to_image(data->mlx, "src/textures/floor.xpm", &x,
 			&y);
-	data->player = mlx_xpm_file_to_image(data->mlx, "src/textures/player.xpm",
-			&x, &y);
-	ft_load_image_wlp(x, y, data);
-	ft_load_image_wp(x, y, data);
+	ft_load_images_anep(x, y, data);
+	ft_load_images_wlp(x, y, data);
+	ft_load_images_wp(x, y, data);
 	ft_load_images_cion(x, y, data);
 	data->exit = mlx_xpm_file_to_image(data->mlx, "src/textures/exit.xpm", &x,
 			&y);

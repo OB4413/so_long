@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/30 18:32:50 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/31 09:41:08 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	check_coin_exit_b(t_data *data, int keycode)
 	i = 0;
 	if (data->map[data->y / 60][data->x / 60] == 'C')
 	{
+		data->inlophok = 'E';
 		data->num++;
 		data->map[data->y / 60][data->x / 60] = '0';
 		while (i < data->i * 2)

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/30 21:11:50 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/31 10:18:19 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	draw_coin_b(t_data *data)
 	static int	j = 0;
 	static int  h = 1;
 	static int	k = 0;
+	static int	l = 0;
 
 	if (j == (data->i * 2))
 		j = 0;
@@ -46,6 +47,17 @@ int	draw_coin_b(t_data *data)
 		}
 		mlx_put_image_to_window(data->mlx, data->win, data->anwlp[k], data->x, data->y);
 		k++;
+	}
+	if (data->inlophok == 'E')
+	{
+		usleep(100000);
+		if (l == 9)
+		{
+			data->inlophok = 'S';
+			l = 0;
+		}
+		mlx_put_image_to_window(data->mlx, data->win, data->anep[l], data->x, data->y);
+		l++;
 	}
 	j += 2;
 	usleep(200000 / (data->i));

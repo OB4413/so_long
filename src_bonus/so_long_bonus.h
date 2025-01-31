@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:12:17 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/30 18:36:05 by obarais          ###   ########.fr       */
+/*   Updated: 2025/01/31 09:02:21 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_BONUS_H
 
 # include "../src/so_long.h"
+# include <unistd.h>
 
 void	load_images_b(t_data *data);
 void	free_resources(t_data *data);
