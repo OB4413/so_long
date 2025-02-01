@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:40:38 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/29 10:47:45 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 10:44:14 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	help_help_check_coin_exit_b(t_data *data, int keycode)
 		if (data->num == data->i)
 		{
 			printf("you win!");
-			free_resources(data);
+			free_resources_b(data);
 			exit(0);
 		}
 		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
@@ -40,7 +40,7 @@ static void	help_help_check_coin_exit_b(t_data *data, int keycode)
 		if (data->num == data->i)
 		{
 			printf("you win!");
-			free_resources(data);
+			free_resources_b(data);
 			exit(0);
 		}
 		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
@@ -55,7 +55,7 @@ void	help_check_coin_exit_b(t_data *data, int keycode)
 		if (data->num == data->i)
 		{
 			printf("you win!");
-			free_resources(data);
+			free_resources_b(data);
 			exit(0);
 		}
 		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");
@@ -66,7 +66,7 @@ void	help_check_coin_exit_b(t_data *data, int keycode)
 		if (data->num == data->i)
 		{
 			printf("you win!");
-			free_resources(data);
+			free_resources_b(data);
 			exit(0);
 		}
 		ft_printf("Error:\nwa si rak mzal mklitych l7am kamlo\n");

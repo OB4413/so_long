@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/31 09:41:08 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 10:46:56 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	close_window_b(t_data *data)
 {
 	if (data->win)
-		free_resources(data);
+		free_resources_b(data);
 	return (0);
 }
 

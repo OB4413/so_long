@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 10:02:26 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 11:13:07 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ void	load_images_b(t_data *data)
 	if (!data->wall || !data->floor || !data->player || !data->ancion
 		|| !data->exit || !data->anwp || !data->anwlp)
 	{
-		free_resources(data);
+		free_resources_b(data);
 		printf("Error: Failed to load images\n");
 		exit(1);
 	}
@@ -192,6 +192,7 @@ int	main(int ac, char **av)
 
 	data.num = 0;
 	data.count_move = 0;
+	// ft_int_pointer(&data);
 	if (ac != 2 || ft_check_path(av[1]))
 		return (1);
 	data.map = ft_char_map(av[1], &data);
@@ -203,10 +204,10 @@ int	main(int ac, char **av)
 	free_map(data.str);
 	data.mlx = mlx_init();
 	if (!data.mlx)
-		return (ft_printf("Error: Failed to init mlx\n"), 1);
+		return (free_resources_b(&data), ft_printf("Error: Failed to init mlx\n"), 1);
 	data.win = opne_windows(&data);
 	if (!data.win)
-		return (ft_printf("Error: Failed to open window\n"), 1);
+		return (free_resources_b(&data), ft_printf("Error: Failed to open window\n"), 1);
 	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
 	data.inlophok = 'S';

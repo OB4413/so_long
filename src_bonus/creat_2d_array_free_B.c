@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/29 14:56:21 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 11:02:24 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,11 @@ void	free_map(char **map)
 	free(map);
 }
 
-void	free_resources(t_data *data)
+void	free_resources_b(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	if (data->player)
-		mlx_destroy_image(data->mlx, data->player);
 	if (data->wall)
 		mlx_destroy_image(data->mlx, data->wall);
 	if (data->floor)
@@ -110,6 +108,46 @@ void	free_resources(t_data *data)
 			i++;
 		}
 		free(data->ancion);
+	}
+	if (data->anwp)
+	{
+		i = 0;
+		while (data->anwp[i])
+		{
+			mlx_destroy_image(data->mlx, data->anwp[i]);
+			i++;
+		}
+		free(data->anwp);
+	}
+	if (data->anwlp)
+	{
+		i = 0;
+		while (data->anwlp[i])
+		{
+			mlx_destroy_image(data->mlx, data->anwlp[i]);
+			i++;
+		}
+		free(data->anwlp);
+	}
+	if (data->anep)
+	{
+		i = 0;
+		while (data->anep[i])
+		{
+			mlx_destroy_image(data->mlx, data->anep[i]);
+			i++;
+		}
+		free(data->anep);
+	}
+	if (data->andp)
+	{
+		i = 0;
+		while (data->andp[i])
+		{
+			mlx_destroy_image(data->mlx, data->andp[i]);
+			i++;
+		}
+		free(data->andp);
 	}
 	if (data->exit)
 		mlx_destroy_image(data->mlx, data->exit);

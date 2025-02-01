@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/31 10:18:19 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 11:17:05 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,10 @@ int	draw_coin_b(t_data *data)
 	static int  h = 1;
 	static int	k = 0;
 	static int	l = 0;
+	static int	d = 0;
 
 	if (j == (data->i * 2))
 		j = 0;
-	if (data->inlophok == 'S')
-	{
-		if (h == 6)
-			h = 0;
-		mlx_put_image_to_window(data->mlx, data->win, data->anwp[h], data->x, data->y);
-		h++;
-	}
 	if (data->xyancion[j] != -1 && data->xyancion[j + 1] != -1)
 	{
 		if (i == 7)
@@ -38,7 +32,19 @@ int	draw_coin_b(t_data *data)
 			mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], data->xyancion[j], data->xyancion[j + 1]);
 		i++;
 	}
-	if (data->inlophok == 'W')
+	j += 2;
+	
+	
+	if (data->inlophok == 'S')
+	{
+		if (h == 6)
+			h = 0;
+		mlx_put_image_to_window(data->mlx, data->win, data->anwp[h], data->x, data->y);
+		h++;
+		k = 0;
+		l = 0;
+	}
+	else if (data->inlophok == 'W')
 	{
 		if (k == 9)
 		{
@@ -48,7 +54,7 @@ int	draw_coin_b(t_data *data)
 		mlx_put_image_to_window(data->mlx, data->win, data->anwlp[k], data->x, data->y);
 		k++;
 	}
-	if (data->inlophok == 'E')
+	else if (data->inlophok == 'E')
 	{
 		usleep(100000);
 		if (l == 9)
@@ -59,7 +65,17 @@ int	draw_coin_b(t_data *data)
 		mlx_put_image_to_window(data->mlx, data->win, data->anep[l], data->x, data->y);
 		l++;
 	}
-	j += 2;
+	else if (data->inlophok == 'D')
+	{
+		usleep(100000);
+		if (d == 18)
+		{
+			printf("You loss\n");
+			close_window_b(data);
+		}
+		mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
+		d++;
+	}
 	usleep(200000 / (data->i));
 	return (0);
 }
