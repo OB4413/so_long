@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:50:25 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 16:11:50 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int	main(int ac, char **av)
 		return (1);
 	data.map = ft_char_map(av[1], &data);
 	check_map(data.map, &data);
-	data.i = ft_count_coin(data.map);
 	postion_player(data.map, &data);
 	data.str = ft_char_map(av[1], &data);
 	ft_check_flood(data.x / 60, data.y / 60, &data);
 	free_map(data.str);
+	ft_count_coin_enemy(data.map, &data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (ft_printf("Error: Failed to init mlx\n"), 1);

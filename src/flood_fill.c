@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:17:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:54:01 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 16:13:08 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void	postion_player(char **map, t_data *data)
 void	ft_check_flood(int x, int y, t_data *data)
 {
 	ft_flood_fill(x, y, data);
-	if (ft_count_coin(data->str) != 0)
+	ft_count_coin_enemy(data->str, data);
+	if (data->i != 0)
 	{
 		free_map(data->map);
 		free_map(data->str);

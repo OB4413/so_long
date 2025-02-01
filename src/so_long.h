@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 11:04:41 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 16:08:45 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_data
 	void		**anwlp;
 	void		**anep;
 	void		**andp;
+	void		**anwle;
+	void		**anse;
 	void		*exit;
 	int			x;
 	int			y;
@@ -54,8 +56,10 @@ typedef struct s_data
 	char		**str;
 	int			num;
 	int			i;
+	int			j;
 	int			count_move;
 	int			*xyancion;
+	int			*xye;
 	char		inlophok;
 }				t_data;
 
@@ -66,7 +70,7 @@ void			check_map(char **map, t_data *data);
 char			**ft_char_map(char *av, t_data *data);
 void			free_map(char **map);
 void			free_resources(t_data *data);
-int				ft_count_coin(char **map);
+void				ft_count_coin_enemy(char **map, t_data *data);
 int				ft_count_exit(char **map);
 void			ft_len_map(char *av, t_data *data);
 void			put_trmnation(char *str);

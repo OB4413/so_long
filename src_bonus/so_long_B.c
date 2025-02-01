@@ -6,11 +6,26 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 12:46:24 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 16:22:00 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+static	void	ft_load_images_anwle(int x, int y, t_data *data)
+{
+	data->anwle = malloc(sizeof(void *) *  9);
+	data->anwle[0] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle1.xpm", &x, &y);
+	data->anwle[1] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle2.xpm", &x, &y);
+	data->anwle[2] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle3.xpm", &x, &y);
+	data->anwle[3] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle4.xpm", &x, &y);
+	data->anwle[4] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle5.xpm", &x, &y);
+	data->anwle[5] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle6.xpm", &x, &y);
+	data->anwle[6] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle7.xpm", &x, &y);
+	data->anwle[7] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle8.xpm", &x, &y);
+	data->anwle[8] = NULL;
+}
+
 
 static	void	ft_load_images_andp(int x, int y, t_data *data)
 {
@@ -157,6 +172,7 @@ void	load_images_b(t_data *data)
 			&y);
 	data->floor = mlx_xpm_file_to_image(data->mlx, "src/textures/floor.xpm", &x,
 			&y);
+	ft_load_images_anwle(x, y, data);
 	ft_load_images_andp(x, y, data);
 	ft_load_images_anep(x, y, data);
 	ft_load_images_wlp(x, y, data);
@@ -184,6 +200,13 @@ void	init_xypc(t_data *data)
 		data->xyancion[i + 1] = -1;
 		i += 2;
 	}
+	i = 0;
+	while (i <= data->j * 2)
+	{
+		data->xye[i] = -1;
+		data->xye[i + 1] = -1;
+		i += 2;
+	}
 }
 
 int	main(int ac, char **av)
@@ -195,12 +218,12 @@ int	main(int ac, char **av)
 	if (ac != 2 || ft_check_path(av[1]))
 		return (1);
 	data.map = ft_char_map(av[1], &data);
-	check_map(data.map, &data);
-	data.i = ft_count_coin(data.map);
+	check_map_b(data.map, &data);
 	postion_player(data.map, &data);
 	data.str = ft_char_map(av[1], &data);
 	ft_check_flood(data.x / 60, data.y / 60, &data);
 	free_map(data.str);
+	ft_count_coin_enemy(data.map, &data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (free_resources_b(&data), ft_printf("Error: Failed to init mlx\n"), 1);
@@ -210,6 +233,7 @@ int	main(int ac, char **av)
 	printf("hgkhkfghjf");
 	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
+	data.xyancion = malloc(sizeof(int) * data.j * 2);
 	data.inlophok = 'S';
 	init_xypc(&data);
 	ft_draw_map_b(&data, av[1]);
