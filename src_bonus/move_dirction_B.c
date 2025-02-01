@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:30:51 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 11:51:03 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 13:00:42 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	the_rest(t_data *data, int i)
 		mlx_put_image_to_window(data->mlx, data->win, data->floor, (*data).x
 			- 60, (*data).y);
 	}
-	check_coin_exit_b(data, i);
+	check_coin_exit_b(data);
 }
 
 int	move_dirction(t_data *data, int i)

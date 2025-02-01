@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 11:13:07 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 12:46:24 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void	load_images_b(t_data *data)
 	data->exit = mlx_xpm_file_to_image(data->mlx, "src/textures/exit.xpm", &x,
 			&y);
 	if (!data->wall || !data->floor || !data->player || !data->ancion
-		|| !data->exit || !data->anwp || !data->anwlp)
+		|| !data->exit || !data->anwp || !data->anwlp || !data->anep || !data->andp)
 	{
 		free_resources_b(data);
 		printf("Error: Failed to load images\n");
@@ -192,7 +192,6 @@ int	main(int ac, char **av)
 
 	data.num = 0;
 	data.count_move = 0;
-	// ft_int_pointer(&data);
 	if (ac != 2 || ft_check_path(av[1]))
 		return (1);
 	data.map = ft_char_map(av[1], &data);
@@ -208,6 +207,7 @@ int	main(int ac, char **av)
 	data.win = opne_windows(&data);
 	if (!data.win)
 		return (free_resources_b(&data), ft_printf("Error: Failed to open window\n"), 1);
+	printf("hgkhkfghjf");
 	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
 	data.inlophok = 'S';
