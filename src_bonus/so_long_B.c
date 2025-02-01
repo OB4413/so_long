@@ -6,11 +6,53 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/31 09:39:47 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 10:02:26 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+static	void	ft_load_images_andp(int x, int y, t_data *data)
+{
+	data->andp = malloc(sizeof(void *) * 19);
+	data->andp[0] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead1.xpm", &x, &y);
+	data->andp[1] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead2.xpm", &x, &y);
+	data->andp[2] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead3.xpm", &x, &y);
+	data->andp[3] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead4.xpm", &x, &y);
+	data->andp[4] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead5.xpm", &x, &y);
+	data->andp[5] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead6.xpm", &x, &y);
+	data->andp[6] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead7.xpm", &x, &y);
+	data->andp[7] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead8.xpm", &x, &y);
+	data->andp[8] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead9.xpm", &x, &y);
+	data->andp[9] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead10.xpm", &x, &y);
+	data->andp[10] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead11.xpm", &x, &y);
+	data->andp[11] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead12.xpm", &x, &y);
+	data->andp[12] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead13.xpm", &x, &y);
+	data->andp[13] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead14.xpm", &x, &y);
+	data->andp[14] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead15.xpm", &x, &y);
+	data->andp[15] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead16.xpm", &x, &y);
+	data->andp[16] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead17.xpm", &x, &y);
+	data->andp[17] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures5/dead18.xpm", &x, &y);
+	data->andp[18] = NULL;
+}
 
 static void	ft_load_images_anep(int x, int y, t_data *data)
 {
@@ -115,6 +157,7 @@ void	load_images_b(t_data *data)
 			&y);
 	data->floor = mlx_xpm_file_to_image(data->mlx, "src/textures/floor.xpm", &x,
 			&y);
+	ft_load_images_andp(x, y, data);
 	ft_load_images_anep(x, y, data);
 	ft_load_images_wlp(x, y, data);
 	ft_load_images_wp(x, y, data);

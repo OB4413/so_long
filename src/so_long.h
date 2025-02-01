@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/31 09:34:38 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/01 09:58:29 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_data
 	void		**anwp;
 	void		**anwlp;
 	void		**anep;
+	void		**andp;
 	void		*exit;
 	int			x;
 	int			y;
