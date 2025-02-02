@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 09:35:57 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 11:59:33 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static	void	ft_load_images_anwle(int x, int y, t_data *data)
 	data->anwle[7] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle8.xpm", &x, &y);
 	data->anwle[8] = NULL;
 }
-
 
 static	void	ft_load_images_andp(int x, int y, t_data *data)
 {
@@ -180,8 +179,8 @@ void	load_images_b(t_data *data)
 	ft_load_images_cion(x, y, data);
 	data->exit = mlx_xpm_file_to_image(data->mlx, "src/textures/exit.xpm", &x,
 			&y);
-	if (!data->wall || !data->floor || !data->player || !data->ancion
-		|| !data->exit || !data->anwp || !data->anwlp || !data->anep || !data->andp)
+	if (!data->wall || !data->floor || !data->ancion
+		|| !data->exit || !data->anwp || !data->anwlp || !data->anep )
 	{
 		free_resources_b(data);
 		printf("Error: Failed to load images\n");
@@ -194,14 +193,14 @@ void	init_xypc(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i <= data->i * 2)
+	while (i < data->i * 2)
 	{
 		data->xyancion[i] = -1;
 		data->xyancion[i + 1] = -1;
 		i += 2;
 	}
 	i = 0;
-	while (i <= data->j * 2)
+	while (i < data->j * 2)
 	{
 		data->xye[i] = -1;
 		data->xye[i + 1] = -1;
@@ -230,14 +229,13 @@ int	main(int ac, char **av)
 	data.win = opne_windows(&data);
 	if (!data.win)
 		return (free_resources_b(&data), ft_printf("Error: Failed to open window\n"), 1);
-	printf("hgkhkfghjf");
 	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
-	data.xyancion = malloc(sizeof(int) * data.j * 2);
+	data.xye = malloc(sizeof(int) * data.j * 2);
 	data.inlophok = 'S';
 	init_xypc(&data);
 	ft_draw_map_b(&data, av[1]);
-	mlx_hook(data.win, 2, 1L >> 0, handle_keypress_b, &data);
+	mlx_hook(data.win, 2, 1L << 0, handle_keypress_b, &data);
 	mlx_hook(data.win, 17, 0, close_window_b, &data);
 	mlx_loop(data.mlx);
 	return (0);

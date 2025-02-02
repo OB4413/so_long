@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 09:36:16 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:29:55 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,12 +149,24 @@ void	free_resources_b(t_data *data)
 		}
 		free(data->andp);
 	}
+	if (data->anwle)
+	{
+		i = 0;
+		while (data->anwle[i])
+		{
+			mlx_destroy_image(data->mlx, data->anwle[i]);
+			i++;
+		}
+		free(data->anwle);
+	}
+	if (data->xyancion)
+		free(data->xyancion);
+	if (data->xye)
+		free(data->xye);
 	if (data->exit)
 		mlx_destroy_image(data->mlx, data->exit);
 	if (data->map)
 		free_map(data->map);
-	if (data->xyancion)
-		free(data->xyancion);
 	if (data->win)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)

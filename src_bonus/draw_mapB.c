@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 09:36:04 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:15:35 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int	draw_coin_b(t_data *data)
 	static int	k = 0;
 	static int	l = 0;
 	static int	d = 0;
-	static int	e = 1;
 	static int	t = 0;
+	static int 	m = 0;
+	int n;
 
 	if (j == (data->i * 2))
 		j = 0;
@@ -36,11 +37,24 @@ int	draw_coin_b(t_data *data)
 	}
 	j += 2;
 
-	if (e == 7)
-		e = 0;
-	mlx_put_image_to_window(data->mlx, data->win, data->anwle[e], data->xye[t], data->xye[t]);
-	e++;
-	t += 2;
+	if (m == (data->j * 2))
+		m = 0;
+	if (data->j != 0)
+	{
+		if (t == 7)
+			t = 0;
+		mlx_put_image_to_window(data->mlx, data->win, data->anwle[t], data->xye[m], data->xye[m + 1]);
+		t++;
+	}
+	m += 2;
+	
+	if (data->j != 0)
+	{
+		if (t == 7)
+			t = 0;
+		
+	}
+
 	if (data->inlophok == 'S')
 	{
 		if (h == 6)
@@ -73,14 +87,19 @@ int	draw_coin_b(t_data *data)
 	}
 	else if (data->inlophok == 'D')
 	{
-		usleep(100000);
-		if (d == 18)
+		while (d < 17)
 		{
-			printf("You loss\n");
-			close_window_b(data);
+			n = 0;
+			while (n < 30000)
+			{
+				mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
+				n++;
+			}
+			d++;
 		}
-		mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
-		d++;
+		usleep(300000);
+		printf("You lose\n");
+		close_window_b(data);
 	}
 	usleep(200000 / (data->i));
 	return (0);

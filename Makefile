@@ -15,7 +15,7 @@ libmlx = minilibx-linux/libmlx_Linux.a
 print = ft_printf/libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME) clean
 

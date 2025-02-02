@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 13:00:20 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:14:40 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ int	close_window_b(t_data *data)
 		free_resources_b(data);
 	return (0);
 }
+
+static void	ft_check_enemy(t_data *data)
+{
+	if (data->map[data->y / 60][data->x / 60] == 'U')
+		data->inlophok = 'D';
+}
+
 
 void	check_coin_exit_b(t_data *data)
 {
@@ -32,7 +39,7 @@ void	check_coin_exit_b(t_data *data)
 		while (i < data->i * 2)
 		{
 			if (data->xyancion[i] == data->x && data->xyancion[i
-					+ 1] == data->y)
+				+ 1] == data->y)
 			{
 				data->xyancion[i] = -1;
 				data->xyancion[i + 1] = -1;
@@ -40,6 +47,8 @@ void	check_coin_exit_b(t_data *data)
 			i += 2;
 		}
 	}
+	else
+		ft_check_enemy(data);
 }
 
 static void	help_handle_keypress_b(int keycode, t_data *data)
