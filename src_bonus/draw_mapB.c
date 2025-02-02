@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:15:35 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:59:10 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	draw_coin_b(t_data *data)
 	static int	k = 0;
 	static int	l = 0;
 	static int	d = 0;
-	static int	t = 0;
+	static int	t = 1;
 	static int 	m = 0;
 	int n;
 
@@ -41,22 +41,16 @@ int	draw_coin_b(t_data *data)
 		m = 0;
 	if (data->j != 0)
 	{
-		if (t == 7)
+		if (t == 3)
 			t = 0;
-		mlx_put_image_to_window(data->mlx, data->win, data->anwle[t], data->xye[m], data->xye[m + 1]);
+		mlx_put_image_to_window(data->mlx, data->win, data->anse[t], data->xye[m], data->xye[m + 1]);
 		t++;
 	}
 	m += 2;
-	
-	if (data->j != 0)
-	{
-		if (t == 7)
-			t = 0;
-		
-	}
 
 	if (data->inlophok == 'S')
 	{
+		usleep(50000);
 		if (h == 6)
 			h = 0;
 		mlx_put_image_to_window(data->mlx, data->win, data->anwp[h], data->x, data->y);
@@ -101,7 +95,7 @@ int	draw_coin_b(t_data *data)
 		printf("You lose\n");
 		close_window_b(data);
 	}
-	usleep(200000 / (data->i));
+	usleep(200000 / (data->i + data->j));
 	return (0);
 }
 

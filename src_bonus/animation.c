@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:18:36 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:15:09 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:35:37 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	animation(t_data *data, char buffer, int x, int y)
 		{
 			data->xye[k] = x;
 			data->xye[k + 1] = y;
-			mlx_put_image_to_window(data->mlx, data->win, data->anwle[0], x, y);
+			mlx_put_image_to_window(data->mlx, data->win, data->anse[0], x, y);
 			k += 2;
 		}
 	    mlx_loop_hook(data->mlx, draw_coin_b, data);

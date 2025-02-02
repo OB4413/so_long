@@ -6,27 +6,49 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 11:59:33 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:33:32 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static	void	ft_load_images_anwle(int x, int y, t_data *data)
+static	void	ft_load_images_anse(int x, int y, t_data *data)
 {
-	data->anwle = malloc(sizeof(void *) *  9);
-	data->anwle[0] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle1.xpm", &x, &y);
-	data->anwle[1] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle2.xpm", &x, &y);
-	data->anwle[2] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle3.xpm", &x, &y);
-	data->anwle[3] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle4.xpm", &x, &y);
-	data->anwle[4] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle5.xpm", &x, &y);
-	data->anwle[5] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle6.xpm", &x, &y);
-	data->anwle[6] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle7.xpm", &x, &y);
-	data->anwle[7] = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/wle8.xpm", &x, &y);
+	data->anse = malloc(sizeof(void *) * 5);
+	data->anse[0] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures7/se1.xpm", &x, &y);
+	data->anse[1] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures7/se2.xpm", &x, &y);
+	data->anse[2] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures7/se3.xpm", &x, &y);
+	data->anse[3] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures7/se4.xpm", &x, &y);
+	data->anse[4] = NULL;
+}
+
+static void	ft_load_images_anwle(int x, int y, t_data *data)
+{
+	data->anwle = malloc(sizeof(void *) * 9);
+	data->anwle[0] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle1.xpm", &x, &y);
+	data->anwle[1] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle2.xpm", &x, &y);
+	data->anwle[2] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle3.xpm", &x, &y);
+	data->anwle[3] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle4.xpm", &x, &y);
+	data->anwle[4] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle5.xpm", &x, &y);
+	data->anwle[5] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle6.xpm", &x, &y);
+	data->anwle[6] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle7.xpm", &x, &y);
+	data->anwle[7] = mlx_xpm_file_to_image(data->mlx,
+			"src_bonus/textures6/wle8.xpm", &x, &y);
 	data->anwle[8] = NULL;
 }
 
-static	void	ft_load_images_andp(int x, int y, t_data *data)
+static void	ft_load_images_andp(int x, int y, t_data *data)
 {
 	data->andp = malloc(sizeof(void *) * 19);
 	data->andp[0] = mlx_xpm_file_to_image(data->mlx,
@@ -171,6 +193,7 @@ void	load_images_b(t_data *data)
 			&y);
 	data->floor = mlx_xpm_file_to_image(data->mlx, "src/textures/floor.xpm", &x,
 			&y);
+	ft_load_images_anse(x, y, data);
 	ft_load_images_anwle(x, y, data);
 	ft_load_images_andp(x, y, data);
 	ft_load_images_anep(x, y, data);
@@ -179,8 +202,9 @@ void	load_images_b(t_data *data)
 	ft_load_images_cion(x, y, data);
 	data->exit = mlx_xpm_file_to_image(data->mlx, "src/textures/exit.xpm", &x,
 			&y);
-	if (!data->wall || !data->floor || !data->ancion
-		|| !data->exit || !data->anwp || !data->anwlp || !data->anep )
+	if (!data->wall || !data->floor || !data->ancion || !data->exit
+		|| !data->anwp || !data->anwlp || !data->anep || !data->andp
+		|| !data->anwle)
 	{
 		free_resources_b(data);
 		printf("Error: Failed to load images\n");
@@ -225,10 +249,12 @@ int	main(int ac, char **av)
 	ft_count_coin_enemy(data.map, &data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
-		return (free_resources_b(&data), ft_printf("Error: Failed to init mlx\n"), 1);
+		return (free_resources_b(&data),
+			ft_printf("Error: Failed to init mlx\n"), 1);
 	data.win = opne_windows(&data);
 	if (!data.win)
-		return (free_resources_b(&data), ft_printf("Error: Failed to open window\n"), 1);
+		return (free_resources_b(&data),
+			ft_printf("Error: Failed to open window\n"), 1);
 	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
 	data.xye = malloc(sizeof(int) * data.j * 2);
