@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:59:10 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/03 19:13:10 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,46 @@ int	draw_coin_b(t_data *data)
 	static int 	m = 0;
 	int n;
 
-	if (j == (data->i * 2))
-		j = 0;
-	if (data->xyancion[j] != -1 && data->xyancion[j + 1] != -1)
+	if (i == 7)
+		i = 0;
+	while (j < (data->i * 2))
 	{
-		if (i == 7)
-			i = 0;
 		if (data->xyancion[j] != -1 && data->xyancion[j + 1] != -1)
 			mlx_put_image_to_window(data->mlx, data->win, data->ancion[i], data->xyancion[j], data->xyancion[j + 1]);
-		i++;
+		j += 2;
 	}
-	j += 2;
-
-	if (m == (data->j * 2))
-		m = 0;
-	if (data->j != 0)
+	j = 0;
+	i++;
+	if (t == 3)
+		t = 0;
+	while (m < (data->j * 2))
 	{
-		if (t == 3)
-			t = 0;
+		usleep(2000);
 		mlx_put_image_to_window(data->mlx, data->win, data->anse[t], data->xye[m], data->xye[m + 1]);
-		t++;
+		m += 2;
 	}
-	m += 2;
+	m = 0;
+	t++;
 
-	if (data->inlophok == 'S')
+	if (data->inlophok == 'D')
 	{
-		usleep(50000);
+		while (d < 17)
+		{
+			n = 0;
+			while (n < 30000)
+			{
+				mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
+				n++;
+			}
+			d++;
+		}
+		usleep(300000);
+		printf("You lose\n");
+		close_window_b(data);
+	}
+	else if (data->inlophok == 'S')
+	{
+		usleep(100000);
 		if (h == 6)
 			h = 0;
 		mlx_put_image_to_window(data->mlx, data->win, data->anwp[h], data->x, data->y);
@@ -60,6 +74,7 @@ int	draw_coin_b(t_data *data)
 	}
 	else if (data->inlophok == 'W')
 	{
+		usleep(50000);
 		if (k == 9)
 		{
 			data->inlophok = 'S';
@@ -79,23 +94,6 @@ int	draw_coin_b(t_data *data)
 		mlx_put_image_to_window(data->mlx, data->win, data->anep[l], data->x, data->y);
 		l++;
 	}
-	else if (data->inlophok == 'D')
-	{
-		while (d < 17)
-		{
-			n = 0;
-			while (n < 30000)
-			{
-				mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
-				n++;
-			}
-			d++;
-		}
-		usleep(300000);
-		printf("You lose\n");
-		close_window_b(data);
-	}
-	usleep(200000 / (data->i + data->j));
 	return (0);
 }
 
