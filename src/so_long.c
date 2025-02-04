@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 16:11:50 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 16:33:07 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	load_images(t_data *data)
 	if (!data->wall || !data->floor || !data->player || !data->coin
 		|| !data->exit)
 	{
-		free_resources(data);
 		printf("Error: Failed to load images\n");
+		free_resources(data);
 		exit(1);
 	}
 }

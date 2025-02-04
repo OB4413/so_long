@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:41:37 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 16:08:34 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 16:33:58 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_count_coin_enemy(char **map, t_data *data)
 	int	i;
 	int	j;
 	int	k;
-	int l;
+	int	l;
 
 	j = 0;
 	k = 0;
