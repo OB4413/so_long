@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/04 08:54:58 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 15:13:14 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	close_window_b(t_data *data)
 	return (0);
 }
 
-static void	ft_check_enemy(t_data *data)
+void	ft_check_enemy(t_data *data)
 {
 	int d;
 	int n;
@@ -94,6 +94,7 @@ int	handle_keypress_b(int keycode, t_data *data)
 {
 	if (keycode == ESC_KEY)
 		close_window_b(data);
+	data->map[data->y / 60][data->x / 60] = 'T';
 	if (keycode == UP || keycode == W)
 	{
 		help_check_coin_exit_b(data, keycode);
@@ -112,5 +113,6 @@ int	handle_keypress_b(int keycode, t_data *data)
 	}
 	else
 		help_handle_keypress_b(keycode, data);
+	data->map[data->y / 60][data->x / 60] = 'T';
 	return (0);
 }

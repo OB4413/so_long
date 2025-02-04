@@ -6,11 +6,45 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/04 08:55:24 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 15:18:22 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+
+static void ft_move_enemy(t_data *data, int m)
+{
+	int i = data->xye[m] / 60;
+	int j = data->xye[m + 1] / 60;
+
+	if (data->map[j - 1][i] == 'T')
+	{
+		data->map[j][i] = '0';
+		data->xye[m + 1] -= 60;
+		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
+	}
+	else if (data->map[j][i - 1] == 'T')
+	{
+		data->map[j][i] = '0';
+		data->xye[m] -= 60;
+		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
+	}
+	else if (data->map[j + 1][i] == 'T')
+	{
+		data->map[j][i] = '0';	
+		data->xye[m + 1] += 60;
+		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
+	}
+	else if (data->map[j][i + 1] == 'T')
+	{
+		data->map[j][i] = '0';
+		data->xye[m] += 60;
+		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
+	}
+	if (data->x == data->xye[m] && data->y == data->xye[m + 1])
+		ft_check_enemy(data);
+}
 
 
 int	draw_coin_b(t_data *data)
@@ -22,6 +56,7 @@ int	draw_coin_b(t_data *data)
 	static int	l = 0;
 	static int	t = 1;
 	static int 	m = 0;
+	static int	n = 0;
 
 	if (i == 7)
 		i = 0;
@@ -34,13 +69,28 @@ int	draw_coin_b(t_data *data)
 	j = 0;
 	i++;
 	if (t == 3)
+	{
 		t = 0;
+		n++;
+	}
+	if (n == 4)
+	{
+		while (n == 4 && m < (data->j * 2))
+		{
+			mlx_put_image_to_window(data->mlx, data->win, data->floor, data->xye[m], data->xye[m + 1]);
+			ft_move_enemy(data, m);
+			m += 2;
+		}
+		n = 0;
+	}
+	m = 0;
 	while (m < (data->j * 2))
 	{
-		usleep(2000);
+		
 		mlx_put_image_to_window(data->mlx, data->win, data->anse[t], data->xye[m], data->xye[m + 1]);
 		m += 2;
 	}
+	usleep(2000);
 	m = 0;
 	t++;
 
@@ -64,6 +114,8 @@ int	draw_coin_b(t_data *data)
 		}
 		mlx_put_image_to_window(data->mlx, data->win, data->anwlp[k], data->x, data->y);
 		k++;
+		h = 0;
+		l = 0;
 	}
 	else if (data->inlophok == 'E')
 	{
@@ -75,6 +127,8 @@ int	draw_coin_b(t_data *data)
 		}
 		mlx_put_image_to_window(data->mlx, data->win, data->anep[l], data->x, data->y);
 		l++;
+		k = 0;
+		h = 0;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 11:32:53 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:50:12 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_data
 	int			*xyancion;
 	int			*xye;
 	char		inlophok;
+	char 		v;
 }				t_data;
 
 int				close_window(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:33:32 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 12:29:42 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,7 +261,7 @@ int	main(int ac, char **av)
 	data.inlophok = 'S';
 	init_xypc(&data);
 	ft_draw_map_b(&data, av[1]);
-	mlx_hook(data.win, 2, 1L << 0, handle_keypress_b, &data);
+	mlx_key_hook(data.win, handle_keypress_b, &data);
 	mlx_hook(data.win, 17, 0, close_window_b, &data);
 	mlx_loop(data.mlx);
 	return (0);
