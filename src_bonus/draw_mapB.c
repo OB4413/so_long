@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/03 19:13:10 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 08:55:24 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ int	draw_coin_b(t_data *data)
 	static int  h = 1;
 	static int	k = 0;
 	static int	l = 0;
-	static int	d = 0;
 	static int	t = 1;
 	static int 	m = 0;
-	int n;
 
 	if (i == 7)
 		i = 0;
@@ -46,23 +44,7 @@ int	draw_coin_b(t_data *data)
 	m = 0;
 	t++;
 
-	if (data->inlophok == 'D')
-	{
-		while (d < 17)
-		{
-			n = 0;
-			while (n < 30000)
-			{
-				mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
-				n++;
-			}
-			d++;
-		}
-		usleep(300000);
-		printf("You lose\n");
-		close_window_b(data);
-	}
-	else if (data->inlophok == 'S')
+	if (data->inlophok == 'S')
 	{
 		usleep(100000);
 		if (h == 6)

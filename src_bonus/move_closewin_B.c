@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:14:40 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/04 08:54:58 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,27 @@ int	close_window_b(t_data *data)
 
 static void	ft_check_enemy(t_data *data)
 {
+	int d;
+	int n;
+
+	d = 0;
+	n = 0;
 	if (data->map[data->y / 60][data->x / 60] == 'U')
-		data->inlophok = 'D';
+	{
+		while (d < 17)
+		{
+			n = 0;
+			while (n < 30000)
+			{
+				mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
+				n++;
+			}
+			d++;
+		}
+		usleep(300000);
+		printf("You lose\n");
+		close_window_b(data);
+	}
 }
 
 
