@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:12:17 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/04 15:02:04 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 10:27:33 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	load_images_b(t_data *data);
 void	free_resources_b(t_data *data);
 void	put_trmnation(char *str);
-void	prinft_error(int i);
+void	printf_error(int i);
 char	**ft_char_map(char *av, t_data *data);
 void	free_map(char **map);
 void	ft_draw_map_b(t_data *data, char *map);

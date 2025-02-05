@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/04 15:18:22 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 10:28:39 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ void	ft_draw_map_b(t_data *data, char *map)
 
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		prinft_error(2);
+		printf_error(2);
 	x = 0;
 	y = 0;
 	the_rest_b(fd, data, x, y);

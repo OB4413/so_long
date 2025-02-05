@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:56:55 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 10:27:56 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	put_trmnation(char *str)
 	}
 }
 
-void	prinft_error(int i)
+void	printf_error(int i)
 {
 	if (i == 1)
 	{
@@ -57,18 +57,18 @@ char	**ft_char_map(char *av, t_data *data)
 	fd = open(av, O_RDONLY);
 	i = 0;
 	if (fd < 0)
-		prinft_error(2);
+		printf_error(2);
 	ft_len_map(av, data);
 	lenmap = data->win_height;
 	map = (char **)malloc(sizeof(char *) * (lenmap + 1));
 	if (!map)
-		prinft_error(4);
+		printf_error(4);
 	while (i < lenmap)
 	{
 		map[i] = get_next_line(fd);
 		put_trmnation(map[i]);
 		if (!map[i])
-			prinft_error(4);
+			printf_error(4);
 		i++;
 	}
 	get_next_line(fd);
