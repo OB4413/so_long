@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/04 12:29:42 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 10:22:48 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,8 +206,8 @@ void	load_images_b(t_data *data)
 		|| !data->anwp || !data->anwlp || !data->anep || !data->andp
 		|| !data->anwle)
 	{
-		free_resources_b(data);
 		printf("Error: Failed to load images\n");
+		free_resources_b(data);
 		exit(1);
 	}
 }
