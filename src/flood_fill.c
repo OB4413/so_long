@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:17:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/01 16:13:08 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 09:41:41 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	ft_check_flood(int x, int y, t_data *data)
 	{
 		free_map(data->map);
 		free_map(data->str);
-		prinft_error(1);
+		printf_error(1);
 	}
 	if (ft_count_exit(data->str) != 0)
 	{
 		free_map(data->map);
 		free_map(data->str);
-		prinft_error(1);
+		printf_error(1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 09:44:24 by obarais           #+#    #+#             */
-/*   Updated: 2025/01/27 11:38:16 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 09:42:54 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	the_rest(int fd, char *line, int *j, int *k)
 				line = get_next_line(fd);
 			}
 			close(fd);
-			prinft_error(1);
+			printf_error(1);
 		}
 		free(line);
 		*j = i;
@@ -51,9 +51,11 @@ void	ft_len_map(char *av, t_data *data)
 	line = NULL;
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-		prinft_error(2);
+		printf_error(2);
 	the_rest(fd, line, &j, &k);
 	data->win_height = k;
 	data->win_width = j;
+	if (data->win_height > 17 || data->win_width > 32)
+		printf_error(1);
 	close(fd);
 }
