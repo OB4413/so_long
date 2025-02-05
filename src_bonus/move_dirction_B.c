@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:30:51 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/02 12:11:31 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:25:14 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,14 @@ int	move_dirction(t_data *data, int i)
 			(*data).y - 60);
 	}
 	the_rest(data, i);
+	mlx_put_image_to_window(data->mlx, data->win, data->wall, 60, 0);
 	data->count_move++;
-	ft_printf("Moves: %d\n", data->count_move);
-	return (0);
+	data->m = ft_itoa(data->count_move);
+	mlx_string_put(data->mlx, data->win, 60, 34, 0x00000000, data->m);
+	mlx_string_put(data->mlx, data->win, 61, 34, 0x00000000, data->m);
+	mlx_string_put(data->mlx, data->win, 62, 34, 0x00000000, data->m);
+	mlx_string_put(data->mlx, data->win, 60, 35, 0x00000000, data->m);
+	mlx_string_put(data->mlx, data->win, 61, 35, 0x00000000, data->m);
+	mlx_string_put(data->mlx, data->win, 62, 35, 0x00000000, data->m);
+	return (free(data->m), 0);
 }

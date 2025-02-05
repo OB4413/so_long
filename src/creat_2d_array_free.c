@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 09:40:40 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:31:05 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void	printf_error(int i)
 	else if (i == 4)
 	{
 		printf("Error: Failed to allocate memory\n");
+		exit(1);
+	}
+	else if (i == 5)
+	{
+		printf("Error: Invalid file path or extension\n");
 		exit(1);
 	}
 }

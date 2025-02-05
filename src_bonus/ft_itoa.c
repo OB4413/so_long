@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_path.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 21:58:21 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 16:28:40 by obarais          ###   ########.fr       */
+/*   Created: 2025/02/05 16:04:42 by obarais           #+#    #+#             */
+/*   Updated: 2025/02/05 16:30:02 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-void	*ft_check_path(char *path)
+char     *ft_itoa(int i)
 {
-	size_t	i;
-	int		j;
+    int     j;
+    int     k;
+    char    *str;
 
-	i = ft_strlen(path);
-	i--;
-	if (path[0] == '.')
-		printf_error(5);
-	j = 0;
-	while (path[j])
-	{
-		if (path[j] == '/')
-		{
-			if (path[j + 1] == '.' || (path[i] != 'r' || path[i - 1] != 'e'
-					|| path[i - 2] != 'b' || path[i - 3] != '.' || path[i
-						- 4] == '/'))
-				printf_error(5);
-		}
-		j++;
-	}
-	return (NULL);
+    j = 0;
+    k = i;
+    while (k > 0)
+    {
+        k /= 10;
+        j++;
+    }
+    str = (char *)malloc(sizeof(char) * (j + 1));
+    if (!str)
+        return (0);
+    str[j] = '\0';
+    while (j--)
+    {
+        str[j] = i % 10 + '0';
+        i /= 10;
+    }
+    put_trmnation(str);
+    return (str);
 }

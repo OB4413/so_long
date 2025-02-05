@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 10:27:56 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:30:39 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void	printf_error(int i)
 	else if (i == 4)
 	{
 		printf("Error: Failed to allocate memory\n");
+		exit(1);
+	}
+	else if (i == 5)
+	{
+		printf("Error: Invalid file path or extension\n");
 		exit(1);
 	}
 }
@@ -169,6 +174,8 @@ void	free_resources_b(t_data *data)
 		}
 		free(data->anse);
 	}
+	if (data->moves)
+		mlx_destroy_image(data->mlx, data->moves);
 	if (data->xyancion)
 		free(data->xyancion);
 	if (data->xye)

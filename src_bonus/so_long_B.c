@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 10:22:48 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 15:00:26 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,6 +201,8 @@ void	load_images_b(t_data *data)
 	ft_load_images_wp(x, y, data);
 	ft_load_images_cion(x, y, data);
 	data->exit = mlx_xpm_file_to_image(data->mlx, "src/textures/exit.xpm", &x,
+			&y);
+	data->moves = mlx_xpm_file_to_image(data->mlx, "src_bonus/textures6/moves.xpm", &x,
 			&y);
 	if (!data->wall || !data->floor || !data->ancion || !data->exit
 		|| !data->anwp || !data->anwlp || !data->anep || !data->andp

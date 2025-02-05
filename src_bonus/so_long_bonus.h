@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:12:17 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 10:27:33 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:07:33 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int		draw_coin_b(t_data *data);
 void	animation(t_data *data, char buffer, int x, int y);
 void	check_map_b(char **map, t_data *data);
 void	ft_check_enemy(t_data *data);
+char    *ft_itoa(int i);
 
 #endif

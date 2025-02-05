@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 10:28:39 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/05 16:00:28 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ int	draw_coin_b(t_data *data)
 	if (data->inlophok == 'S')
 	{
 		usleep(100000);
+		mlx_put_image_to_window(data->mlx, data->win, data->anwp[h], data->x, data->y);
 		if (h == 6)
 			h = 0;
-		mlx_put_image_to_window(data->mlx, data->win, data->anwp[h], data->x, data->y);
 		h++;
 		k = 0;
 		l = 0;
@@ -107,12 +107,12 @@ int	draw_coin_b(t_data *data)
 	else if (data->inlophok == 'W')
 	{
 		usleep(50000);
+		mlx_put_image_to_window(data->mlx, data->win, data->anwlp[k], data->x, data->y);
 		if (k == 9)
 		{
 			data->inlophok = 'S';
 			k = 0;
 		}
-		mlx_put_image_to_window(data->mlx, data->win, data->anwlp[k], data->x, data->y);
 		k++;
 		h = 0;
 		l = 0;
@@ -120,12 +120,12 @@ int	draw_coin_b(t_data *data)
 	else if (data->inlophok == 'E')
 	{
 		usleep(100000);
-		if (l == 9)
+		mlx_put_image_to_window(data->mlx, data->win, data->anep[l], data->x, data->y);
+		if (l == 8)
 		{
 			data->inlophok = 'S';
 			l = 0;
 		}
-		mlx_put_image_to_window(data->mlx, data->win, data->anep[l], data->x, data->y);
 		l++;
 		k = 0;
 		h = 0;
@@ -171,5 +171,6 @@ void	ft_draw_map_b(t_data *data, char *map)
 	x = 0;
 	y = 0;
 	the_rest_b(fd, data, x, y);
+	mlx_put_image_to_window(data->mlx, data->win, data->moves, 0, 0);
 	close(fd);
 }
