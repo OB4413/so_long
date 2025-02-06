@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:17:45 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 09:41:41 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:40:01 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,18 @@
 
 void	ft_flood_fill(int x, int y, t_data *data)
 {
+	static int	i = 0;
+
 	if (x < 0 || y < 0 || x >= data->win_width || y >= data->win_height
 		|| data->str[y][x] == '1')
 		return ;
+	if (data->str[y][x] == 'C')
+		i++;
+	if (data->str[y][x] == 'E' && data->i != i)
+	{
+		data->str[y][x] = '1';
+		return ;
+	}
 	data->str[y][x] = '1';
 	ft_flood_fill(x + 1, y, data);
 	ft_flood_fill(x - 1, y, data);
