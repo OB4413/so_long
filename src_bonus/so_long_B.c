@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 10:59:10 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:06:39 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ void	init_xypc(t_data *data)
 	}
 }
 
+static void	main_help(t_data *data, char *av)
+{
+	data->map = ft_char_map(av, data);
+	check_map_b(data->map, data);
+	postion_player(data->map, data);
+	data->str = ft_char_map(av, data);
+	ft_check_flood(data->x / 60, data->y / 60, data);
+	free_map(data->str);
+	ft_count_coin_enemy(data->map, data);
+}
+
 int	main(int ac, char **av)
 {
 	t_data	data;
@@ -69,13 +80,7 @@ int	main(int ac, char **av)
 	data.count_move = 0;
 	if (ac != 2 || ft_check_path(av[1]))
 		return (1);
-	data.map = ft_char_map(av[1], &data);
-	check_map_b(data.map, &data);
-	postion_player(data.map, &data);
-	data.str = ft_char_map(av[1], &data);
-	ft_check_flood(data.x / 60, data.y / 60, &data);
-	free_map(data.str);
-	ft_count_coin_enemy(data.map, &data);
+	main_help(&data, av[1]);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (free_resources_b(&data),
