@@ -6,22 +6,16 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:18:36 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 09:45:12 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:25:35 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	animathin_help(t_data *data)
+static	void	animathin_coin(t_data *data)
 {
-	static int	i = 1;
+	static int	i = 0;
 	static int	j = 0;
-	static int  h = 1;
-	static int	k = 0;
-	static int	l = 0;
-	static int	t = 1;
-	static int 	m = 0;
-	static int	n = 0;
 
 	if (i == 7)
 		i = 0;
@@ -33,6 +27,18 @@ int	animathin_help(t_data *data)
 	}
 	j = 0;
 	i++;
+}
+
+int	animathin_help(t_data *data)
+{
+	static int  h = 1;
+	static int	k = 0;
+	static int	l = 0;
+	static int	t = 1;
+	static int 	m = 0;
+	static int	n = 0;
+
+	animathin_coin(data);
 	if (t == 3)
 	{
 		t = 0;
