@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:12:17 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 09:31:00 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:39:09 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		animathin_help(t_data *data);
 void	animation(t_data *data, char buffer, int x, int y);
 void	check_map_b(char **map, t_data *data);
 void	ft_check_enemy(t_data *data);
-char    *ft_itoa(int i);
-void    ft_move_enemy(t_data *data, int m);
+char	*ft_itoa(int i);
+void	ft_move_enemy(t_data *data, int m);
 
 #endif

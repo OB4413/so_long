@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:35:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/04 15:13:14 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:40:55 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	close_window_b(t_data *data)
 
 void	ft_check_enemy(t_data *data)
 {
-	int d;
-	int n;
+	int	d;
+	int	n;
 
 	d = 0;
 	n = 0;
@@ -33,7 +33,8 @@ void	ft_check_enemy(t_data *data)
 			n = 0;
 			while (n < 30000)
 			{
-				mlx_put_image_to_window(data->mlx, data->win, data->andp[d], data->x, data->y);
+				mlx_put_image_to_window(data->mlx, data->win, data->andp[d],
+					data->x, data->y);
 				n++;
 			}
 			d++;
@@ -43,7 +44,6 @@ void	ft_check_enemy(t_data *data)
 		close_window_b(data);
 	}
 }
-
 
 void	check_coin_exit_b(t_data *data)
 {
@@ -58,7 +58,7 @@ void	check_coin_exit_b(t_data *data)
 		while (i < data->i * 2)
 		{
 			if (data->xyancion[i] == data->x && data->xyancion[i
-				+ 1] == data->y)
+					+ 1] == data->y)
 			{
 				data->xyancion[i] = -1;
 				data->xyancion[i + 1] = -1;
