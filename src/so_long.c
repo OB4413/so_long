@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 15:22:27 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 16:19:52 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	load_images(t_data *data)
 	if (!data->wall || !data->floor || !data->player || !data->coin
 		|| !data->exit)
 	{
-		printf("Error: Failed to load images\n");
+		printf("Error\n Failed to load images\n");
 		free_resources(data);
 		exit(1);
 	}
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	data.num = 0;
 	data.count_move = 0;
 	if (ac != 2 || ft_check_path(av[1]))
-		return (printf("Error: Invalid arguments\n"), 1);
+		return (printf("Error\n Invalid arguments\n"), 1);
 	data.map = ft_char_map(av[1], &data);
 	check_map(data.map, &data);
 	postion_player(data.map, &data);
@@ -53,10 +53,10 @@ int	main(int ac, char **av)
 	ft_count_coin_enemy(data.map, &data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
-		return (ft_printf("Error: Failed to init mlx\n"), 1);
+		return (ft_printf("Error\n Failed to init mlx\n"), 1);
 	data.win = opne_windows(&data);
 	if (!data.win)
-		return (ft_printf("Error: Failed to open window\n"), 1);
+		return (ft_printf("Error\n Failed to open window\n"), 1);
 	load_images(&data);
 	ft_draw_map(&data, av[1]);
 	mlx_hook(data.win, 2, 1L >> 0, handle_keypress, &data);

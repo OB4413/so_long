@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:58:57 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 16:31:05 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 16:20:21 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ void	printf_error(int i)
 {
 	if (i == 1)
 	{
-		printf("Error: Map is invalid\n");
+		printf("Error\n Map is invalid\n");
 		exit(1);
 	}
 	else if (i == 2)
 	{
-		printf("Error: Failed to open map file\n");
+		printf("Error\n Failed to open map file\n");
 		exit(1);
 	}
 	else if (i == 4)
 	{
-		printf("Error: Failed to allocate memory\n");
+		printf("Error\n Failed to allocate memory\n");
 		exit(1);
 	}
 	else if (i == 5)
 	{
-		printf("Error: Invalid file path or extension\n");
+		printf("Error\n Invalid file path or extension\n");
 		exit(1);
 	}
 }
