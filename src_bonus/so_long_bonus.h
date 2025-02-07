@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:12:17 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 10:39:09 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:50:16 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ void	check_map_b(char **map, t_data *data);
 void	ft_check_enemy(t_data *data);
 char	*ft_itoa(int i);
 void	ft_move_enemy(t_data *data, int m);
+void	ft_load_images_anse(int x, int y, t_data *data);
+void	ft_load_images_anwle(int x, int y, t_data *data);
+void	ft_load_images_anep(int x, int y, t_data *data);
+void	ft_load_images_cion(int x, int y, t_data *data);
+void	ft_load_images_wp(int x, int y, t_data *data);
+void	ft_load_images_wlp(int x, int y, t_data *data);
+void	ft_load_images_andp(int x, int y, t_data *data);
 
 #endif
