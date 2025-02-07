@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 15:23:01 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 16:34:15 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	load_images_b(t_data *data)
 		|| !data->anwp || !data->anwlp || !data->anep || !data->andp
 		|| !data->anwle)
 	{
-		printf("Error: Failed to load images\n");
+		printf("Error\n Failed to load images\n");
 		free_resources_b(data);
 	}
 }
@@ -82,16 +82,16 @@ int	main(int ac, char **av)
 	data.num = 0;
 	data.count_move = 0;
 	if (ac != 2 || ft_check_path(av[1]))
-		return (printf("Error: Invalid arguments\n"), 1);
+		return (printf("Error\n Invalid arguments\n"), 1);
 	main_help(&data, av[1]);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (free_resources_b(&data),
-			ft_printf("Error: Failed to init mlx\n"), 1);
+			ft_printf("Error\n Failed to init mlx\n"), 1);
 	data.win = opne_windows(&data);
 	if (!data.win)
 		return (free_resources_b(&data),
-			ft_printf("Error: Failed to open window\n"), 1);
+			ft_printf("Error\n Failed to open window\n"), 1);
 	load_images_b(&data);
 	data.xyancion = malloc(sizeof(int) * data.i * 2);
 	data.xye = malloc(sizeof(int) * data.j * 2);
