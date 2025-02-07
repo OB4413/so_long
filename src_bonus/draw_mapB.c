@@ -6,52 +6,11 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:00:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 11:12:38 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 14:56:01 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
-static void	ft_move_enemy_help(t_data *data, int m, int i, int j)
-{
-	if (data->map[j + 1][i] == 'T')
-	{
-		data->map[j][i] = '0';
-		data->xye[m + 1] += 60;
-		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
-	}
-	else if (data->map[j][i + 1] == 'T')
-	{
-		data->map[j][i] = '0';
-		data->xye[m] += 60;
-		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
-	}
-}
-
-void	ft_move_enemy(t_data *data, int m)
-{
-	int	i;
-	int	j;
-
-	i = data->xye[m] / 60;
-	j = data->xye[m + 1] / 60;
-	if (data->map[j - 1][i] == 'T')
-	{
-		data->map[j][i] = '0';
-		data->xye[m + 1] -= 60;
-		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
-	}
-	else if (data->map[j][i - 1] == 'T')
-	{
-		data->map[j][i] = '0';
-		data->xye[m] -= 60;
-		data->map[data->xye[m + 1] / 60][data->xye[m] / 60] = 'U';
-	}
-	else
-		ft_move_enemy_help(data, m, i, j);
-	if (data->x == data->xye[m] && data->y == data->xye[m + 1])
-		ft_check_enemy(data);
-}
 
 static void	the_rest_b(int fd, t_data *data, int x, int y)
 {

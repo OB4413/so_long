@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:39 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 16:23:23 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 14:48:59 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ typedef struct s_data
 	char	inlophok;
 	void	*moves;
 	char	*m;
+	int		k;
+	int		h;
+	int		l;
 }			t_data;
 
 int			close_window(t_data *data);

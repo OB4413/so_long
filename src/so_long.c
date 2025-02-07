@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/06 21:47:58 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 15:22:27 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	data.num = 0;
 	data.count_move = 0;
 	if (ac != 2 || ft_check_path(av[1]))
-		return (1);
+		return (printf("Error: Invalid arguments\n"), 1);
 	data.map = ft_char_map(av[1], &data);
 	check_map(data.map, &data);
 	postion_player(data.map, &data);

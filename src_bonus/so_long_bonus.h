@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:12:17 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 10:50:16 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 15:18:58 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	ft_load_images_cion(int x, int y, t_data *data);
 void	ft_load_images_wp(int x, int y, t_data *data);
 void	ft_load_images_wlp(int x, int y, t_data *data);
 void	ft_load_images_andp(int x, int y, t_data *data);
+void	animathin_enemy(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 11:06:39 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 15:23:01 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ void	init_xypc(t_data *data)
 
 static void	main_help(t_data *data, char *av)
 {
+	data->h = 1;
+	data->l = 0;
+	data->k = 0;
 	data->map = ft_char_map(av, data);
 	check_map_b(data->map, data);
 	postion_player(data->map, data);
@@ -79,7 +82,7 @@ int	main(int ac, char **av)
 	data.num = 0;
 	data.count_move = 0;
 	if (ac != 2 || ft_check_path(av[1]))
-		return (1);
+		return (printf("Error: Invalid arguments\n"), 1);
 	main_help(&data, av[1]);
 	data.mlx = mlx_init();
 	if (!data.mlx)
