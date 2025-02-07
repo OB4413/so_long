@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:43:23 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 10:49:32 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:59:10 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	load_images_b(t_data *data)
 	{
 		printf("Error: Failed to load images\n");
 		free_resources_b(data);
-		exit(1);
 	}
 }
 
