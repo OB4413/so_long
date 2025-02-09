@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:50:52 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/07 15:23:52 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:24:58 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ void	animathin_enemy(t_data *data)
 		t = 0;
 		n++;
 	}
-	if (n == 2)
+	if (n == 3)
 	{
-		while (n == 2 && m < (data->j * 2))
+		while (n == 3 && m < (data->j * 2))
 		{
 			mlx_put_image_to_window(data->mlx, data->win, data->floor,
 				data->xye[m], data->xye[m + 1]);

@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:30:51 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 16:25:14 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:26:40 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	move_dirction(t_data *data, int i)
 	mlx_string_put(data->mlx, data->win, 61, 34, 0x00000000, data->m);
 	mlx_string_put(data->mlx, data->win, 62, 34, 0x00000000, data->m);
 	mlx_string_put(data->mlx, data->win, 60, 35, 0x00000000, data->m);
-	mlx_string_put(data->mlx, data->win, 61, 35, 0x00000000, data->m);
-	mlx_string_put(data->mlx, data->win, 62, 35, 0x00000000, data->m);
+	mlx_string_put(data->mlx, data->win, 61, 35, 0x78ff00, data->m);
+	mlx_string_put(data->mlx, data->win, 62, 35, 0x78ff00, data->m);
 	return (free(data->m), 0);
 }

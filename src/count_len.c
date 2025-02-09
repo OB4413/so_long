@@ -6,7 +6,7 @@
 /*   By: obarais <obarais@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 09:44:24 by obarais           #+#    #+#             */
-/*   Updated: 2025/02/05 09:42:54 by obarais          ###   ########.fr       */
+/*   Updated: 2025/02/09 15:31:37 by obarais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,5 @@ void	ft_len_map(char *av, t_data *data)
 	the_rest(fd, line, &j, &k);
 	data->win_height = k;
 	data->win_width = j;
-	if (data->win_height > 17 || data->win_width > 32)
-		printf_error(1);
 	close(fd);
 }
