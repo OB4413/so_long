@@ -43,4 +43,4 @@ re: fclean all
 
 .SECONDARY: $(OBJECTS) $(BOBJECTS)
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
